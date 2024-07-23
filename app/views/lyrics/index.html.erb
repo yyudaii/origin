@@ -147,7 +147,11 @@
 </header>
 
 <main>
-
+  <div class="container mt-4">
+    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#postModal">
+      新しい歌詞を投稿
+    </button>
+  </div>
 
 
   <!-- Marketing messaging and featurettes
@@ -164,7 +168,7 @@
           <p class="lead"><%= lyric.content %></p>
         </div>
         <div class="col-md-5">
-          <% if lyric.image.attached? %>
+          <% if lyric.image && lyric.image.attached? %>
             <%= image_tag lyric.image, class: 'bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto', width: '500', height: '500' %>
           <% else %>
             <svg class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="500" height="500" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="プレースホルダー: 500x500" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="var(--bs-secondary-bg)"></rect><text x="50%" y="50%" fill="var(--bs-secondary-color)" dy=".3em">500x500</text></svg>
@@ -204,7 +208,7 @@
   </div>
 
 
-    <!-- /END THE FEATURETTES -->
+    <!-- /END THE FEATURETTES にゃーーーー-->
 
   </div><!-- /.container -->
 
@@ -214,6 +218,39 @@
     <p class="float-end"><a href="#"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">トップに戻る</font></font></a></p>
   </footer>
 </main>
+
+<!-- モーダルのHTML -->
+<div class="modal fade" id="postModal" tabindex="-1" aria-labelledby="postModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="postModalLabel">新しい歌詞を投稿</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <%= form_with(model: Lyric.new, local: true) do |form| %>
+          <div class="mb-3">
+            <%= form.label :title, 'タイトル' %>
+            <%= form.text_field :title, class: 'form-control' %>
+          </div>
+          <div class="mb-3">
+            <%= form.label :content, '歌詞' %>
+            <%= form.text_area :content, class: 'form-control' %>
+          </div>
+          <div class="mb-3">
+            <%= form.label :image, '画像' %>
+            <%= form.file_field :image, class: 'form-control' %>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">キャンセル</button>
+            <%= form.submit '投稿', class: 'btn btn-primary' %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
+
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
 
     
