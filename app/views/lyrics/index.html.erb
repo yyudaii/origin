@@ -165,7 +165,7 @@
       <div class="row featurette">
         <div class="col-md-7">
           <h2 class="featurette-heading fw-normal lh-1"><%= lyric.title %></h2>
-          <p class="lead"><%= lyric.content %></p>
+          <p class="lead"><%= lyric.lyric %></p>
         </div>
         <div class="col-md-5">
           <% if lyric.image && lyric.image.attached? %>
@@ -191,7 +191,7 @@
           <div class="container">
             <div class="carousel-caption text-start">
               <h1><%= lyric.title %></h1>
-              <p class="opacity-75"><%= lyric.content %></p>
+              <p class="opacity-75"><%= lyric.lyric %></p>
             </div>
           </div>
         </div>
@@ -235,7 +235,7 @@
           </div>
           <div class="mb-3">
             <%= form.label :lyric, '歌詞' %>
-            <%= form.text_area :content, class: 'form-control' %>
+            <%= form.text_area :lyric, class: 'form-control' %>
           </div>
           <div class="mb-3">
             <%= form.label :image, '画像' %>
