@@ -2,9 +2,9 @@ class LyricsController < ApplicationController
 before_action :authenticate_user!, except: [:index, :show]
 
   def index
-    @lyrics = Lyric.where('created_at >= ?', 24.hours.ago)
+    @lyrics = Lyric.all
     if @lyrics.empty?
-      @lyrics = [OpenStruct.new(title: "ダミータイトル", content: "これはダミーのコンテンツです。", created_at: Time.now, image: nil)]
+      @lyrics = [OpenStruct.new(title: "ダミータイトル", lyric: "これはダミーのコンテンツです。",image:"music_album_cover.png", created_at: Time.now, image: nil)]
     end
   end
 
@@ -16,9 +16,9 @@ before_action :authenticate_user!, except: [:index, :show]
   end
 
   def create
-    @lyric = current_user.posts.build(post_params)
+    @lyric = Lyric.new(lyric_params)
     if @lyric.save
-      redirect_to root_pathjf
+      redirect_to root_path
     else
       render :new
     end
@@ -36,6 +36,6 @@ private
   end
 
   def lyric_params
-    params.require(:lyric).permit(:image).merge()
+    params.require(:lyric).permit(:image, :lyric,:image).merge(user_id: current_user.id)
   end
 
