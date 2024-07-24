@@ -16,7 +16,7 @@ before_action :authenticate_user!, except: [:index, :show]
   end
 
   def create
-    @lyric = current_user.posts.build(post_params)
+    @lyric = Lyric.new(lyric_params)
     if @lyric.save
       redirect_to root_pathjf
     else
@@ -36,6 +36,6 @@ private
   end
 
   def lyric_params
-    params.require(:lyric).permit(:image).merge()
+    params.require(:lyric).permit(:image, :lyric,).merge()
   end
 

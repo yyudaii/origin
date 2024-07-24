@@ -40,6 +40,8 @@ ActiveRecord::Schema[7.0].define(version: 2024_07_18_093515) do
   end
 
   create_table "lyrics", charset: "utf8", force: :cascade do |t|
+    t.string "title"
+    t.text "lyric"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
