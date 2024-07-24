@@ -78,3 +78,10 @@ end
   gem 'image_processing', '~> 1.2'
 
   gem 'whenever', require: false
+
+  gem 'jquery-rails'
+
+  gem 'bootstrap', '~> 5.2.3'
+
+  gem 'sassc-rails'
+

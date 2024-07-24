@@ -18,7 +18,7 @@ before_action :authenticate_user!, except: [:index, :show]
   def create
     @lyric = current_user.posts.build(post_params)
     if @lyric.save
-      redirect_to @lyric
+      redirect_to root_pathjf
     else
       render :new
     end
