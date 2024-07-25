@@ -9,6 +9,7 @@
   <title>プレゼンテーション スライド テンプレート · Bootstrap v5.3</title>
   
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.3.0/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 
 
     <style>
@@ -114,6 +115,20 @@
         height: 1.5rem;
       }
     }
+
+    body {
+      font-family: 'Roboto', sans-serif;
+    }
+    .navbar-brand {
+      font-weight: 700;
+    }
+    .btn-primary {
+      background-color: #6c757d;
+      border: none;
+    }
+    .btn-primary:hover {
+      background-color: #5a6268;
+    }
     </style>
 
         <link href="./index_files/carousel.rtl.css" rel="stylesheet">
@@ -132,15 +147,17 @@
       <div class="collapse navbar-collapse" id="navbarCollapse">
         <ul class="navbar-nav me-auto mb-2 mb-md-0">
           <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="#"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">ホームページ</font></font></a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">リンク</font></font></a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link disabled"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">リンク</font></font></a>
+            <a class="nav-link" href="https://genius.com/">genius.comへ</a>
           </li>
         </ul>
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item">
+              <%= link_to '新規登録', new_user_registration_path, class: 'nav-link' %>
+            </li>
+            <li class="nav-item">
+              <%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: 'nav-link' %>
+            </li>
+          </ul>
       </div>
     </div>
   </nav>
@@ -149,7 +166,7 @@
 <main>
   <div class="container mt-4">
     <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#postModal">
-      新しい歌詞を投稿
+      <i class="fas fa-plus"></i> 新しい歌詞を投稿
     </button>
   </div>
 
@@ -168,7 +185,7 @@
           <p class="lead"><%= lyric.lyric %></p>
         </div>
         <div class="col-md-5">
-          <% if lyric.image.attached? %>
+          <% if lyric.image && lyric.image.attached? %>
             <%= image_tag lyric.image, class: 'bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto', width: '500', height: '500' %>
           <% else %>
             <%= image_tag 'music_album_cover.png', class: 'bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto', width: '500', height: '500' %>
