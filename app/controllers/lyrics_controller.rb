@@ -1,10 +1,12 @@
 class LyricsController < ApplicationController
 before_action :authenticate_user!, except: [:index, :show]
+before_action :set_lyric, only: [:show, :destroy]
+
 
   def index
     @lyrics = Lyric.all
     if @lyrics.empty?
-      @lyrics = [OpenStruct.new(title: "ダミータイトル", lyric: "これはダミーのコンテンツです。",image:"music_album_cover.png", created_at: Time.now, image: nil)]
+      @lyrics = [OpenStruct.new(title: "ダミータイトル", lyric: "これはダミーのコンテンツです。", created_at: Time.now, image: nil)]
     end
   end
 
@@ -31,11 +33,11 @@ before_action :authenticate_user!, except: [:index, :show]
 end
 private
 
-  def set_post
-    @lyric = Post.find(params[:id])
+  def set_lyric
+    @lyric = Lyric.find(params[:id])
   end
 
   def lyric_params
-    params.require(:lyric).permit(:image, :lyric,:image).merge(user_id: current_user.id)
+    params.require(:lyric).permit(:title,:lyric,:image).merge(user_id: current_user.id)
   end
 
