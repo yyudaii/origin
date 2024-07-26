@@ -13,6 +13,60 @@
 
 
     <style>
+
+      .navbar {
+        background: linear-gradient(45deg, #ff7e5f, #feb47b);
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        transition: all 0.3s ease;
+      }
+
+      .navbar-brand {
+        font-weight: 700;
+        font-size: 1.5rem;
+      }
+
+      .navbar-nav .nav-link {
+        color: #fff !important;
+        transition: color 0.3s ease;
+      }
+
+      .navbar-nav .nav-link:hover {
+        color: #ffe066 !important;
+      }
+
+      :root {
+        --main-color: #ff7e5f;
+        --accent-color: #feb47b;
+        --background-color: #f7f7f7;
+        --button-hover-color: #5a23c8;
+      }
+
+      body {
+        background-color: var(--background-color);
+        color: #333;
+      }
+
+      .header, .navbar, .btn-primary, .modal-header {
+        background: var(--main-color);
+      }
+
+      .btn-primary {
+        background-color: var(--main-color);
+        border: none;
+      }
+
+      .btn-primary:hover {
+        background-color: var(--button-hover-color);
+      }
+
+      hr.featurette-divider {
+        border-top: 1px solid var(--accent-color);
+      }
+
+      .featurette-heading {
+        color: var(--title-color);
+      }
+
       .bd-placeholder-img {
         font-size: 1.125rem;
         text-anchor: middle;
@@ -65,6 +119,27 @@
         -webkit-overflow-scrolling: touch;
       }
 
+      .btn-primary {
+        background: linear-gradient(45deg, #ff7e5f, #feb47b);
+        border: none;
+        color: white;
+        padding: 15px 30px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 18px;
+        margin: 4px 2px;
+        transition: all 0.3s ease;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      }
+
+      .btn-primary:hover {
+        background: linear-gradient(45deg, #feb47b, #ff7e5f);
+        transform: scale(1.1);
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+      }
+
+
       .btn-bd-primary {
         --bd-violet-bg: #712cf9;
         --bd-violet-rgb: 112.520718, 44.062154, 249.437846;
@@ -90,6 +165,16 @@
       margin-left: 2rem;
 
       }
+
+      .btn-primary i {
+        margin-right: 8px;
+        transition: transform 0.3s ease;
+      }
+
+      .btn-primary:hover i {
+        transform: rotate(20deg);
+      }
+
 
           /* Custom media queries for responsiveness */
     @media (max-width: 767px) {
