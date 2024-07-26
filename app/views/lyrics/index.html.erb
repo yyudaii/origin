@@ -267,7 +267,7 @@
       <div class="row featurette">
         <div class="col-md-7">
           <h2 class="featurette-heading fw-normal lh-1"><%= lyric.title %></h2>
-          <p class="lead"><%= lyric.lyric %></p>
+          <p class="lead"><%= simple_format(lyric.lyric) %></p>
         </div>
         <div class="col-md-5">
           <% if lyric.image && lyric.image.attached? %>
