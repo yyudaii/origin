@@ -6,7 +6,7 @@ before_action :set_lyric, only: [:show, :destroy]
   def index
     @lyrics = Lyric.all
     if @lyrics.empty?
-      @lyrics = [OpenStruct.new(title: "ダミータイトル", lyric: "これはダミーのコンテンツです。", created_at: Time.now, image: nil)]
+      @lyrics = [OpenStruct.new(title: "ダミータイトル", lyric: "ここにコンテンツが表示されます", created_at: Time.now, image: nil)]
     end
   end
 

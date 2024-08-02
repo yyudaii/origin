@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>新しい歌詞を投稿する</title>
+  <title>新しい投稿</title>
   <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   
@@ -26,7 +26,7 @@
 
   <div class="container mt-5">
     <h1>新しい歌詞を投稿する</h1>
-    <%= form_with(model: new_lyric_path, local: true, html: { class: 'form' }) do |form| %>
+    <%= form_with(model: @lyric, local: true, html: { class: 'form' }) do |form| %>
       <div class="form-group">
         <%= form.label :title, "曲名" %>
         <%= form.text_field :title, class: 'form-control' %>
